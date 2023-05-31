@@ -28,15 +28,17 @@ function App() {
   return (
     <form onSubmit={formik.handleSubmit}>
       <label>Nombre</label>
-      <input name="name" type="text" onChange={formik.handleChange} value={formik.values.name} />
-      {formik.errors.name ? <div>{formik.errors.name}</div> : null}
+      <input name="name" type="text" onChange={formik.handleChange} value={formik.values.name} onBlur={formik.handleBlur} />
+      {formik.touched.name && formik.errors.name ? <div>{formik.errors.name}</div> : null}
       <br />
       <label>Apellido</label>
-      <input name="lastname" type="text" onChange={formik.handleChange} value={formik.values.lastname} />
-      {formik.errors.lastname ? <div>{formik.errors.lastname}</div> : null}
+      <input name="lastname" type="text" onChange={formik.handleChange} value={formik.values.lastname} onBlur={formik.handleBlur}/>
+      {formik.touched.lastname && formik.errors.lastname ? <div>{formik.errors.lastname}</div> : null}
       <br />
       <label>Correo</label>
-      <input name="email" type="email" onChange={formik.handleChange} value={formik.values.email} />
+      <input name="email" type="email" onChange={formik.handleChange} value={formik.values.email} onBlur={formik.handleBlur}/>
+      {formik.touched.email && formik.errors.email ? <div>{formik.errors.email}</div> : null}
+      <br />
       <button type="submit">Enviar</button>
     </form>
   );
